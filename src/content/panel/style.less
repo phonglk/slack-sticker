@@ -1,0 +1,27 @@
+@bg-gray: #f9f9f9;
+@fg-gray: #2c2d30;
+@border-gray: rgba(0,0,0,.15);
+
+.sticker-panel-root {
+  > div {
+    height: 150px;
+    box-sizing: border-box;
+    border: 1px solid @border-gray;
+  }
+  .sticker-header {
+    display: flex;
+    .sticker-list {
+      display: flex;
+      flex: 1 1 auto;
+    }
+    .sticker-options {
+      flex: 0 0 20px;
+      line-height: 20px;
+      a {
+        font-size: 16px;
+        color: #333;
+        text-decoration: none;
+      }
+    }
+  }
+}

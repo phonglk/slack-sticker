@@ -1,0 +1,50 @@
+{
+  "name": "Slack Sticker",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Sticker for Slack on the Web App",
+  "homepage_url": "https://github.com/phonglk/chrome-extension-webpack-boilerplate",
+  "icons": {
+    "16": "assert/icon_16.png",
+    "32": "assert/icon_32.png",
+    "64": "assert/icon_64.png",
+    "128": "assert/icon_128.png",
+    "256": "assert/icon_256.png"
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "assert/icon_16.png",
+      "38": "assert/icon_64.png"
+    },
+    "default_title": "Manage Stickers",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "http://*.slack.com/*",
+    "https://*.slack.com/*"
+  ],
+  "content_scripts": [{
+    "all_frames": false,
+    "js": [
+      "common.dll.js",
+      "content.js"
+    ],
+    "css": [
+      "content-style.css"
+    ],
+    "matches": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "run_at": "document_start"
+  }],
+  "web_accessible_resources": ["assert/*"]
+}

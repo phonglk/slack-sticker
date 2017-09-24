@@ -1,0 +1,71 @@
+{
+  "name": "chrome-extension-webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Chrome Extension with Webpack Minimal Boilerplate ",
+  "main": "index.js",
+  "scripts": {
+    "build-dll": "webpack --config=dll.webpack.config.js",
+    "build-css": "webpack --config=css.webpack.config.js",
+    "dev": "webpack --config=webpack.config.js --progress --colors --watch",
+    "build-prod-css": "env PRODUCTION=1 webpack --config=css.webpack.config.js",
+    "build-prod-dll": "env PRODUCTION=1 webpack --config=dll.webpack.config.js",
+    "build-prod-src": "env PRODUCTION=1 webpack",
+    "build-prod": "npm run build-prod-dll && npm run build-prod-css && npm run build-prod-src && build-zip",
+    "zip": "zip -r -o packed.zip dist/packed/",
+    "build-prod-src-only": "npm run build-prod-src && npm run zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phonglk/chrome-extension-webpack-boilerplate.git"
+  },
+  "keywords": [
+    "chrome",
+    "chrome-extension",
+    "boilerplate",
+    "webpack",
+    "react"
+  ],
+  "author": "Le Khoi Phong",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/phonglk/chrome-extension-webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/phonglk/chrome-extension-webpack-boilerplate#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-modern-browsers": "^9.0.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "base64-font-loader": "0.0.4",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.7",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-import-resolver-webpack": "^0.8.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "automate-chrome-extension-update": "^1.0.8",
+    "babel-runtime": "^6.26.0",
+    "core-decorators": "^0.17.0",
+    "lodash": "^4.17.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-modal": "^2.3.2",
+    "style-loader": "^0.13.2"
+  }
+}
