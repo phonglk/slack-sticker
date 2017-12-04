@@ -47,6 +47,11 @@ module.exports = {
     extensions: ['.js', '.json']
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env':{
+        'PRODUCTION': 1
+      }
+    }),
     new webpack.DllReferencePlugin({
       context: '.',
       manifest: require(distPath + 'common-manifest.json')

@@ -1,8 +1,8 @@
 {
   "name": "Slack Sticker",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "manifest_version": 2,
-  "description": "Sticker for Slack on the Web App",
+  "description": "Sticker for Slack Web App",
   "homepage_url": "https://github.com/phonglk/chrome-extension-webpack-boilerplate",
   "icons": {
     "16": "assert/icon_16.png",

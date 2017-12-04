@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Panel from '../panel';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import logger from 'redux-logger'
 
-export default class Sticker extends Component {
+import Panel from './components/Panel';
+import slackSticker from './reducers';
+const isProduction = typeof process.env.PRODUCTION !== 'undefined';
+
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -11,7 +18,7 @@ export default class Sticker extends Component {
     }
   }
   componentDidMount() {
-    require('./style.less');
+    require('./content-style.less');
   }
 
   togglePanelClick = () => {
@@ -25,7 +32,15 @@ export default class Sticker extends Component {
         $panel.className = 'sticker-panel-root';
         $footer.insertBefore($panel, $footer.firstChild);
       }
-      ReactDOM.render(<Panel isOpen={isPanel} />, $panel);
+      const store = createStore(slackSticker, 
+        isProduction
+        ? applyMiddleware(thunk)
+        : applyMiddleware(thunk, logger));
+      ReactDOM.render((
+        <Provider store={store}>
+          <Panel isOpen={isPanel} />
+        </Provider>
+      ), $panel);
     }
     this.setState({ isPanel });
   }

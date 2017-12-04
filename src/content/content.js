@@ -1,4 +1,4 @@
-import Sticker from './sticker';
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -7,5 +7,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.createElement('div');
   root.classList.add('slack-sticker-extension-root');
   document.querySelector('#msg_form').appendChild(root);
-  ReactDOM.render(<Sticker />, root);
+  ReactDOM.render(<App />, root);
 });

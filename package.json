@@ -10,7 +10,7 @@
     "build-prod-css": "env PRODUCTION=1 webpack --config=css.webpack.config.js",
     "build-prod-dll": "env PRODUCTION=1 webpack --config=dll.webpack.config.js",
     "build-prod-src": "env PRODUCTION=1 webpack",
-    "build-prod": "npm run build-prod-dll && npm run build-prod-css && npm run build-prod-src && build-zip",
+    "build-prod": "npm run build-prod-dll && npm run build-prod-css && npm run build-prod-src && npm run zip",
     "zip": "zip -r -o packed.zip dist/packed/",
     "build-prod-src-only": "npm run build-prod-src && npm run zip"
   },
@@ -61,11 +61,16 @@
   "dependencies": {
     "automate-chrome-extension-update": "^1.0.8",
     "babel-runtime": "^6.26.0",
+    "classnames": "^2.2.5",
     "core-decorators": "^0.17.0",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-modal": "^2.3.2",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "style-loader": "^0.13.2"
   }
 }
